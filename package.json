@@ -1,0 +1,21 @@
+{
+  "name": "@hermanscheer/graphql-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "G <g@herman-scheer.com> (https://github.com/Herman-Scheer)",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "babel-preset-es2015": "^6.24.0",
+    "babel-register": "^6.24.0",
+    "graphql": "^0.9.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^7.2.0",
+    "standard": "^9.0.2"
+  }
+}
