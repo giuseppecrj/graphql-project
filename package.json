@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon index.js"
   },
   "keywords": [],
   "author": "G <g@herman-scheer.com> (https://github.com/Herman-Scheer)",
@@ -16,6 +16,7 @@
   },
   "devDependencies": {
     "babel-eslint": "^7.2.0",
+    "nodemon": "^1.11.0",
     "standard": "^9.0.2"
   }
 }
