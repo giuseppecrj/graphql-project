@@ -22,9 +22,9 @@ app.post('/graphql', (req, res) => {
 MongoClient.connect(MONGO_URL, (err, db) => {
   assert.equal(null, err)
   console.log('Connected to MongoDB server')
+
   let server = app.listen(PORT, () => {
     let port = server.address().port
-
     console.log(`GRAPHQL listening at http://localhost:${port}`)
   })
 })
