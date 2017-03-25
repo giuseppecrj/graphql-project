@@ -6,6 +6,26 @@
   "scripts": {
     "start": "nodemon index.js"
   },
+  "standard": {
+    "parser": "babel-eslint",
+    "globals": [
+      "Back",
+      "TweenMax",
+      "TweenLite",
+      "TimelineLite",
+      "TimelineMax",
+      "Linear",
+      "Power0",
+      "Power1",
+      "Power2",
+      "Power3",
+      "Power4",
+      "inject",
+      "it",
+      "expect",
+      "SystemJS"
+    ]
+  },
   "keywords": [],
   "author": "G <g@herman-scheer.com> (https://github.com/Herman-Scheer)",
   "license": "UNLICENSED",
@@ -21,7 +41,7 @@
     "morgan": "^1.8.1"
   },
   "devDependencies": {
-    "babel-eslint": "^7.2.0",
+    "babel-eslint": "^7.2.1",
     "nodemon": "^1.11.0",
     "standard": "^9.0.2"
   }
