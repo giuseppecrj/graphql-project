@@ -1,27 +1,30 @@
 import express from 'express'
-import { mySchema } from './schema/main'
-
-import { graphql } from 'graphql'
+import graphqlHTTP from 'express-graphql'
 import bodyParser from 'body-parser'
-
+import morgan from 'morgan'
 import { MongoClient } from 'mongodb'
 import assert from 'assert'
 
+import { mySchema } from './schema/main'
+
 let MONGO_URL = 'mongodb://localhost:27017/test'
-let app = express()
 let PORT = 3000
-
-// parse POST
-app.use(bodyParser.text({ type: 'application/graphql' }))
-
-app.post('/graphql', (req, res) => {
-  graphql(mySchema, req.body)
-    .then(result => res.json(result))
-})
 
 MongoClient.connect(MONGO_URL, (err, db) => {
   assert.equal(null, err)
   console.log('Connected to MongoDB server')
+
+  let app = express()
+
+  app.use(morgan('dev'))
+  app.use(bodyParser.urlencoded({ extended: false }))
+  app.use(bodyParser.json())
+
+  app.use('/graphql', graphqlHTTP({
+    schema: mySchema,
+    context: { db },
+    graphiql: true
+  }))
 
   let server = app.listen(PORT, () => {
     let port = server.address().port

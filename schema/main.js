@@ -1,4 +1,10 @@
-import { GraphQLObjectType, GraphQLSchema, GraphQLString, GraphQLInt, GraphQLList } from 'graphql'
+import { 
+  GraphQLObjectType,
+  GraphQLSchema,
+  GraphQLString,
+  GraphQLInt, 
+  GraphQLList 
+} from 'graphql'
 
 const roll = () => Math.floor(6 * Math.random()) + 1
 
@@ -24,6 +30,11 @@ const queryType = new GraphQLObjectType({
         }
         return rolls
       }
+    },
+    usersCount: {
+      type: GraphQLInt,
+      resolve: (_, args, { db }) =>
+        db.collection('users').count()
     }
   }
 })
