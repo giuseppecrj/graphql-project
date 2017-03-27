@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
-    "standard": "standard"
+    "start": "concurrently -k 'npm run watch:server' 'npm run watch:build'",
+    "watch:server": "nodemon index.js",
+    "watch:build": "webpack-dev-server --config ./tools/webpack.config.babel.js",
+    "webpack": "webpack --config ./tools/webpack.config.babel.js"
   },
   "standard": {
     "parser": "babel-eslint",
@@ -42,8 +44,13 @@
     "morgan": "^1.8.1"
   },
   "devDependencies": {
+    "awesome-typescript-loader": "^3.1.2",
     "babel-eslint": "^7.2.1",
+    "concurrently": "^3.4.0",
     "nodemon": "^1.11.0",
-    "standard": "^9.0.2"
+    "standard": "^9.0.2",
+    "typescript": "^2.2.1",
+    "webpack": "^2.3.2",
+    "webpack-dev-server": "^2.4.2"
   }
 }

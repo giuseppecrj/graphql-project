@@ -1,0 +1,15 @@
+{
+ "compilerOptions": {
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "removeComments": true,
+    "target": "es5",
+    "jsx": "react",
+    "noEmitHelpers": true
+ },
+ "awesomeTypescriptLoaderOptions": {
+   "transpileOnly": true,
+   "doTypeCheck": false,
+   "emitRequireType": true
+ }
+}
