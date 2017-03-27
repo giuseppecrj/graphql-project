@@ -7,18 +7,17 @@ import assert from 'assert'
 
 import { mySchema } from './schema/main'
 
-let MONGO_URL = 'mongodb://localhost:27017/test'
-let PORT = 3000
+const app = express()
+const MONGO_URL = 'mongodb://localhost:27017/test'
+const PORT = 3000
+
+app.use(morgan('dev'))
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 
 MongoClient.connect(MONGO_URL, (err, db) => {
   assert.equal(null, err)
   console.log('Connected to MongoDB server')
-
-  let app = express()
-
-  app.use(morgan('dev'))
-  app.use(bodyParser.urlencoded({ extended: false }))
-  app.use(bodyParser.json())
 
   app.use('/graphql', graphqlHTTP({
     schema: mySchema,
@@ -26,8 +25,8 @@ MongoClient.connect(MONGO_URL, (err, db) => {
     graphiql: true
   }))
 
-  let server = app.listen(PORT, () => {
-    let port = server.address().port
+  const server = app.listen(PORT, () => {
+    const port = server.address().port
     console.log(`GRAPHQL listening at http://localhost:${port}`)
   })
 })
