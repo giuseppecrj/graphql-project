@@ -1,7 +1,7 @@
 import path from 'path'
 
 export default {
-  entry: './modules/main.ts',
+  entry: './modules/main.tsx',
   output: {
     filename: 'app.js',
     path: path.resolve('./public')

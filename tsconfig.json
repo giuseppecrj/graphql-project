@@ -5,7 +5,7 @@
     "removeComments": true,
     "target": "es5",
     "jsx": "react",
-    "noEmitHelpers": true
+    "noEmitHelpers": false
  },
  "awesomeTypescriptLoaderOptions": {
    "transpileOnly": true,
